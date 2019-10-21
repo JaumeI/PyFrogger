@@ -1,4 +1,5 @@
 import pygame, sys, random
+from Classes.Car import *
 
 from pygame.locals import *
 
@@ -32,13 +33,16 @@ FROG.rect.x = SCREENWIDTH/2 - FROG.image.get_width()/2
 FROG.rect.y = SCREENHEIGHT-FROG.image.get_height()-(JUMP/2)
 
 
-cars=pygame.sprite.Group()
+'''cars=pygame.sprite.Group()
 redcar = pygame.sprite.Sprite()
 redcar.image = pygame.image.load("images/redcar.png").convert_alpha()
 redcar.image = pygame.transform.scale(redcar.image, (int(SCREENWIDTH/8),int(SCREENHEIGHT/20)))
 redcar.rect = redcar.image.get_rect()
 redcar.rect.x=0
-redcar.rect.y=SCREENHEIGHT/20*16
+redcar.rect.y=SCREENHEIGHT/20*16'''
+
+#car = Car(Color(50,50,50),1,(int(SCREENHEIGHT/20*16)),1,SCREENWIDTH)
+car = Car("red",1,(int(SCREENHEIGHT/20*16)),1,SCREENWIDTH)
  
 
 # Rellotge de control
@@ -63,13 +67,17 @@ while True:
                 FROG.rect.y-=JUMP
             elif (event.key==K_DOWN  and FROG.rect.y + JUMP < SCREENHEIGHT-FROG.image.get_height()):# Aquest -1 no és correcte...
                 FROG.rect.y+=JUMP
-        
+    
+    #movem el cotxe
+    car.move()
     # Fons negre
     DISPLAYSURF.fill((0,0,0))
     DISPLAYSURF.blit(background,(0,0)) 
     # La granota
     DISPLAYSURF.blit(FROG.image,(FROG.rect.x,FROG.rect.y)) 
-    DISPLAYSURF.blit(redcar.image,(redcar.rect.x,redcar.rect.y)) 
+    #DISPLAYSURF.blit(redcar.image,(redcar.rect.x,redcar.rect.y)) 
+    #DISPLAYSURF.blit(car.image,(car.rect.x,car.rect.y)) 
+    car.paint(DISPLAYSURF)
     #redibuixem la pantalla
     pygame.display.update()
     clock.tick(24)
