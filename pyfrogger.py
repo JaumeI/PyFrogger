@@ -33,17 +33,14 @@ FROG.rect.x = SCREENWIDTH/2 - FROG.image.get_width()/2
 FROG.rect.y = SCREENHEIGHT-FROG.image.get_height()-(JUMP/2)
 
 
-'''cars=pygame.sprite.Group()
-redcar = pygame.sprite.Sprite()
-redcar.image = pygame.image.load("images/redcar.png").convert_alpha()
-redcar.image = pygame.transform.scale(redcar.image, (int(SCREENWIDTH/8),int(SCREENHEIGHT/20)))
-redcar.rect = redcar.image.get_rect()
-redcar.rect.x=0
-redcar.rect.y=SCREENHEIGHT/20*16'''
+cars=pygame.sprite.Group()
 
 #car = Car(Color(50,50,50),1,(int(SCREENHEIGHT/20*16)),1,SCREENWIDTH)
-car = Car("red",1,(int(SCREENHEIGHT/20*16)),1,SCREENWIDTH)
+redcar = Car("red",1,(int(SCREENHEIGHT/20*16)),1,SCREENWIDTH)
+bluecar = Car("blue",1,(int(SCREENHEIGHT/20*14)),-1,SCREENWIDTH)
  
+cars.add(redcar)
+cars.add(bluecar)
 
 # Rellotge de control
 clock=pygame.time.Clock()
@@ -51,6 +48,8 @@ clock=pygame.time.Clock()
 
 #bucle infinit de joc
 while True:
+    for car in pygame.sprite.spritecollide(FROG, cars,0):
+        print("Collision")
     #controlem els esdeveniments
     for event in pygame.event.get():
         #si és de tipus sortida, tanquem el joc
@@ -69,7 +68,8 @@ while True:
                 FROG.rect.y+=JUMP
     
     #movem el cotxe
-    car.move()
+    for c in cars:
+        c.move()
     # Fons negre
     DISPLAYSURF.fill((0,0,0))
     DISPLAYSURF.blit(background,(0,0)) 
@@ -77,7 +77,9 @@ while True:
     DISPLAYSURF.blit(FROG.image,(FROG.rect.x,FROG.rect.y)) 
     #DISPLAYSURF.blit(redcar.image,(redcar.rect.x,redcar.rect.y)) 
     #DISPLAYSURF.blit(car.image,(car.rect.x,car.rect.y)) 
-    car.paint(DISPLAYSURF)
+    for c in cars:
+        c.paint(DISPLAYSURF)
+    #car.paint(DISPLAYSURF)
     #redibuixem la pantalla
     pygame.display.update()
-    clock.tick(24)
+    clock.tick(10)
