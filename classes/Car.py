@@ -12,7 +12,7 @@ class Car(pygame.sprite.Sprite):
         self.orderNum = orderNum
         self.screenWidth = screenWidth
 
-        self.startPosition = int(self.rect.width*self.orderNum)
+        self.startPosition = (random.randint(80,160)*self.orderNum) + int(self.rect.width*self.orderNum)
         if self.speed > 0:
             
             self.rect.x = 0 - self.startPosition

@@ -47,6 +47,8 @@ speed = random.randint(int(SCREENWIDTH/60),int(SCREENWIDTH/40))
 cars.add(Car("redcar.png",0,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
 cars.add(Car("redcar.png",1,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
 cars.add(Car("redcar.png",2,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
+cars.add(Car("redcar.png",3,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
+
 
 speed = random.randint(int(SCREENWIDTH/60),int(SCREENWIDTH/40)) *(-1)
 cars.add(Car("bluecar.png",0,(int(SCREENHEIGHT/20*14)),speed,SCREENWIDTH))
