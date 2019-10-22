@@ -40,14 +40,15 @@ cars=pygame.sprite.Group()
 
 #bluecar = Car("bluecar.png",1,(int(SCREENHEIGHT/20*14)),-1,SCREENWIDTH)
 
-#velocitat de la primera línia 
+'''#velocitat de la primera línia 
 speed = random.randint(int(SCREENWIDTH/60),int(SCREENWIDTH/40)) 
 
 #creem la primera línia
 cars.add(Car("redcar.png",0,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
 cars.add(Car("redcar.png",1,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
 cars.add(Car("redcar.png",2,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
-cars.add(Car("redcar.png",3,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
+
+
 
 
 speed = random.randint(int(SCREENWIDTH/60),int(SCREENWIDTH/40)) *(-1)
@@ -55,8 +56,23 @@ cars.add(Car("bluecar.png",0,(int(SCREENHEIGHT/20*14)),speed,SCREENWIDTH))
 cars.add(Car("bluecar.png",1,(int(SCREENHEIGHT/20*14)),speed,SCREENWIDTH))
 cars.add(Car("bluecar.png",2,(int(SCREENHEIGHT/20*14)),speed,SCREENWIDTH))
 #Car("redcar.png",1,1,1,SCREENWIDTH)
-#cars.add(bluecar)
+#cars.add(bluecar)'''
 
+speed = random.randint(int(SCREENWIDTH/60),int(SCREENWIDTH/40)) 
+for i in range(3):
+    cars.add(Car("redcar.png",i,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
+
+speed = random.randint(int(SCREENWIDTH/60),int(SCREENWIDTH/40))*(-1)
+for i in range(3):
+    cars.add(Car("bluecar.png",i,(int(SCREENHEIGHT/20*14)),speed,SCREENWIDTH))
+
+speed = random.randint(int(SCREENWIDTH/55),int(SCREENWIDTH/35)) 
+for i in range(3):
+    cars.add(Car("redcar.png",i,(int(SCREENHEIGHT/20*12)),speed,SCREENWIDTH))
+
+speed = random.randint(int(SCREENWIDTH/50),int(SCREENWIDTH/30))*(-1)
+for i in range(3):
+    cars.add(Car("bluecar.png",i,(int(SCREENHEIGHT/20*10)),speed,SCREENWIDTH))
 # Rellotge de control
 clock=pygame.time.Clock()
 
