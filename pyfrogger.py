@@ -5,9 +5,6 @@ from pygame.locals import *
 
 pygame.init()
 
-
-
-
 #Demanem la mida del monitor
 mw = pygame.display.Info().current_w
 mh = pygame.display.Info().current_h
@@ -27,9 +24,6 @@ SCREENHEIGHT= windowSize
 DISPLAYSURF=pygame.display.set_mode((SCREENWIDTH,SCREENHEIGHT))
 # Poseu el nom que més us convingui a la finestra!
 pygame.display.set_caption("PyFrogger")
-
-
-
 
 # Una font per escriure coses per pantalla. 
 FONT = pygame.font.SysFont('arial',18)
