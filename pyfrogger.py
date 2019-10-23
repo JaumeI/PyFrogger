@@ -1,17 +1,35 @@
-import pygame, sys, random
+import pygame, sys, random, os
 from Classes.Car import *
 
 from pygame.locals import *
 
 pygame.init()
 
+
+
+
+#Demanem la mida del monitor
+mw = pygame.display.Info().current_w
+mh = pygame.display.Info().current_h
+
+if mw > mh:
+    windowSize = mh - int(mh/10)
+else:
+    windowSize = mw - int(mw/10)
+
+#posicio de la finestra
+os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (int((mw/2)-(windowSize/2)),int((mh/2)-(windowSize/2)))
+
 # Definim la mida de la finestra
-SCREENWIDTH = 800
-SCREENHEIGHT=800
+SCREENWIDTH = windowSize
+SCREENHEIGHT= windowSize
 # Creem una finestra de les mides indicades
 DISPLAYSURF=pygame.display.set_mode((SCREENWIDTH,SCREENHEIGHT))
 # Poseu el nom que més us convingui a la finestra!
 pygame.display.set_caption("PyFrogger")
+
+
+
 
 # Una font per escriure coses per pantalla. 
 FONT = pygame.font.SysFont('arial',18)
