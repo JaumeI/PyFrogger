@@ -3,7 +3,7 @@ import pygame, random
 class Car(pygame.sprite.Sprite):
     def __init__(self, image, orderNum, Yposition, speed, screenWidth):
         super().__init__()
-        self.image = pygame.Surface([screenWidth/10,screenWidth/20])
+        #self.image = pygame.Surface([screenWidth/10,screenWidth/20])
         self.image = pygame.image.load("images/"+image).convert_alpha()
         self.image = pygame.transform.scale(self.image, (int(screenWidth/8),int(screenWidth/20)))
         #self.image.fill(colour)

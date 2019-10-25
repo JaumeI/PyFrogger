@@ -1,6 +1,6 @@
 import pygame, sys, random, os
 from Classes.Car import *
-
+from Cotxe import *
 from pygame.locals import *
 
 pygame.init()
@@ -46,7 +46,9 @@ FROG.rect.y = SCREENHEIGHT-FROG.image.get_height()-(JUMP/2)
 
 
 cars=pygame.sprite.Group()
-
+cotxes = pygame.sprite.Group()
+cotxes.add(Cotxe(400))
+cotxes.add(Cotxe(300))
 #car = Car(Color(50,50,50),1,(int(SCREENHEIGHT/20*16)),1,SCREENWIDTH)
 #redcar = Car("redcar.png",1,0,1,SCREENWIDTH)
 
@@ -93,6 +95,8 @@ clock=pygame.time.Clock()
 while True:
     for car in pygame.sprite.spritecollide(FROG, cars,0):
         print("Collision")
+        FROG.rect.x = SCREENWIDTH/2 - FROG.image.get_width()/2
+        FROG.rect.y = SCREENHEIGHT-FROG.image.get_height()-(JUMP/2)
     #controlem els esdeveniments
     for event in pygame.event.get():
         #si és de tipus sortida, tanquem el joc
@@ -118,11 +122,10 @@ while True:
     DISPLAYSURF.blit(background,(0,0)) 
     # La granota
     DISPLAYSURF.blit(FROG.image,(FROG.rect.x,FROG.rect.y)) 
-    #DISPLAYSURF.blit(redcar.image,(redcar.rect.x,redcar.rect.y)) 
-    #DISPLAYSURF.blit(car.image,(car.rect.x,car.rect.y)) 
+
     for c in cars:
         c.paint(DISPLAYSURF)
-    #car.paint(DISPLAYSURF)
+
     #redibuixem la pantalla
     pygame.display.update()
     clock.tick(10)
