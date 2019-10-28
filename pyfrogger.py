@@ -49,28 +49,6 @@ cars=pygame.sprite.Group()
 cotxes = pygame.sprite.Group()
 cotxes.add(Cotxe(400))
 cotxes.add(Cotxe(300))
-#car = Car(Color(50,50,50),1,(int(SCREENHEIGHT/20*16)),1,SCREENWIDTH)
-#redcar = Car("redcar.png",1,0,1,SCREENWIDTH)
-
-#bluecar = Car("bluecar.png",1,(int(SCREENHEIGHT/20*14)),-1,SCREENWIDTH)
-
-'''#velocitat de la primera línia 
-speed = random.randint(int(SCREENWIDTH/60),int(SCREENWIDTH/40)) 
-
-#creem la primera línia
-cars.add(Car("redcar.png",0,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
-cars.add(Car("redcar.png",1,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
-cars.add(Car("redcar.png",2,(int(SCREENHEIGHT/20*16)),speed,SCREENWIDTH))
-
-
-
-
-speed = random.randint(int(SCREENWIDTH/60),int(SCREENWIDTH/40)) *(-1)
-cars.add(Car("bluecar.png",0,(int(SCREENHEIGHT/20*14)),speed,SCREENWIDTH))
-cars.add(Car("bluecar.png",1,(int(SCREENHEIGHT/20*14)),speed,SCREENWIDTH))
-cars.add(Car("bluecar.png",2,(int(SCREENHEIGHT/20*14)),speed,SCREENWIDTH))
-#Car("redcar.png",1,1,1,SCREENWIDTH)
-#cars.add(bluecar)'''
 
 speed = random.randint(int(SCREENWIDTH/60),int(SCREENWIDTH/40)) 
 for i in range(3):
