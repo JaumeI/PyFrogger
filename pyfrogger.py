@@ -101,8 +101,8 @@ while True:
     for event in pygame.event.get():
         #si és de tipus sortida, tanquem el joc
         if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
+            pygame.quit()
+            sys.exit()
         # Si han premut una tecla...
         elif event.type==KEYDOWN:
             if event.key==K_RIGHT and FROG.rect.x + JUMP < SCREENWIDTH-FROG.image.get_width(): # Aquest -1 no és correcte...
